@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/Blagoja-Sarkisjan-react-portfolio/static/css/main.247783da.css",
+    "main.css": "/Blagoja-Sarkisjan-react-portfolio/static/css/main.f84339c2.css",
     "main.js": "/Blagoja-Sarkisjan-react-portfolio/static/js/main.0985d615.js",
     "static/js/453.6f4065ad.chunk.js": "/Blagoja-Sarkisjan-react-portfolio/static/js/453.6f4065ad.chunk.js",
     "static/media/education-bg.png": "/Blagoja-Sarkisjan-react-portfolio/static/media/education-bg.cd4645c2ae51e9918e6c.png",
@@ -10,12 +10,12 @@
     "static/media/contact-bg.png": "/Blagoja-Sarkisjan-react-portfolio/static/media/contact-bg.33bc850979c15def7e29.png",
     "static/media/portfolioPic.JPG": "/Blagoja-Sarkisjan-react-portfolio/static/media/portfolioPic.924f845acc0b62f26696.JPG",
     "index.html": "/Blagoja-Sarkisjan-react-portfolio/index.html",
-    "main.247783da.css.map": "/Blagoja-Sarkisjan-react-portfolio/static/css/main.247783da.css.map",
+    "main.f84339c2.css.map": "/Blagoja-Sarkisjan-react-portfolio/static/css/main.f84339c2.css.map",
     "main.0985d615.js.map": "/Blagoja-Sarkisjan-react-portfolio/static/js/main.0985d615.js.map",
     "453.6f4065ad.chunk.js.map": "/Blagoja-Sarkisjan-react-portfolio/static/js/453.6f4065ad.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.247783da.css",
+    "static/css/main.f84339c2.css",
     "static/js/main.0985d615.js"
   ]
 }
