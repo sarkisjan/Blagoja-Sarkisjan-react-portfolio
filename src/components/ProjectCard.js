@@ -106,7 +106,7 @@ const ProjectCard = ({ project }) => {
           </div>
         </div>
       )}
-      <hr style={{ color: "#20c4cb" }} />
+      <hr className="projectBorder" />
     </div>
   );
 };

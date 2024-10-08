@@ -72,7 +72,7 @@ a {
   font-size: 30px;
 }
 #about {
-  background-image: linear-gradient(#f8f0e7, #f8f0e7df),
+  background-image: linear-gradient(#dfdbd6, #f8f0e7df),
     url("./assets/images/education-bg.png");
   background-repeat: no-repeat;
   background-size: cover;
@@ -187,6 +187,9 @@ li::marker {
 
 .project-img:hover {
   transform: scale(1.05); /* Hover effect to make image pop */
+}
+.projectBorder {
+  color: #20c4cb;
 }
 
 /* Modal Layout */
