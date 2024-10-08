@@ -666,7 +666,7 @@ li::marker {
     top: 100px;
     left: 50%;
     transform: translateX(-50%);
-    width: 450px;
+    width: auto;
     height: 450px;
   }
   .project-info {
