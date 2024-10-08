@@ -12,11 +12,11 @@ const Projects = () => {
       description:
         "'FitLife Hub' is a comprehensive fitness platform developed using React JS. The website features over 1200 exercises, each accompanied by instructional GIFs, detailed descriptions, and targeted muscle information to help users optimize their workouts.",
       images: [
-        "/images/projects/fitLifeHub_2.png",
-        "/images/projects/fitLifeHub_3.png",
-        "/images/projects/fitLifeHub_4.png",
-        "/images/projects/fitLifeHub_5.png",
-        "/images/projects/fitLifeHub_1.png",
+        process.env.PUBLIC_URL + "/images/projects/fitLifeHub_2.png",
+        process.env.PUBLIC_URL + "/images/projects/fitLifeHub_3.png",
+        process.env.PUBLIC_URL + "/images/projects/fitLifeHub_4.png",
+        process.env.PUBLIC_URL + "/images/projects/fitLifeHub_5.png",
+        process.env.PUBLIC_URL + "/images/projects/fitLifeHub_1.png",
       ],
       link: "https://fitlifehub.net",
     },
@@ -27,8 +27,8 @@ const Projects = () => {
       ],
 
       images: [
-        "/images/projects/addProduct_2.png",
-        "/images/projects/addProduct_1.png",
+        process.env.PUBLIC_URL + "/images/projects/addProduct_2.png",
+        process.env.PUBLIC_URL + "/images/projects/addProduct_1.png",
       ],
       link: "https://bazeproducts.000webhostapp.com/index.php",
     },
@@ -39,9 +39,9 @@ const Projects = () => {
       ],
 
       images: [
-        "/images/projects/ticTacToe_2.png",
-        "/images/projects/ticTacToe_3.png",
-        "/images/projects/ticTacToe_1.png",
+        process.env.PUBLIC_URL + "/images/projects/ticTacToe_2.png",
+        process.env.PUBLIC_URL + "/images/projects/ticTacToe_3.png",
+        process.env.PUBLIC_URL + "/images/projects/ticTacToe_1.png",
       ],
       link: "https://sarkisjan.github.io/TicTacToeGame/",
     },
@@ -52,10 +52,10 @@ const Projects = () => {
       ],
 
       images: [
-        "/images/projects/unka_2.png",
-        "/images/projects/unka_3.png",
-        "/images/projects/unka_4.png",
-        "/images/projects/unka_1.png",
+        process.env.PUBLIC_URL + "/images/projects/unka_2.png",
+        process.env.PUBLIC_URL + "/images/projects/unka_3.png",
+        process.env.PUBLIC_URL + "/images/projects/unka_4.png",
+        process.env.PUBLIC_URL + "/images/projects/unka_1.png",
       ],
       link: "https://sarkisjan.github.io/Unka/",
     },

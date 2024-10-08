@@ -8,23 +8,51 @@ const Skills = () => {
 
   // Array of technical skills with names and percentages (skill level)
   const skills = [
-    { name: "HTML", procent: "82%", image: "/images/html-logo.png" },
-    { name: "CSS", procent: "78%", image: "/images/css-logo.png" },
+    {
+      name: "HTML",
+      procent: "82%",
+      image: process.env.PUBLIC_URL + "/images/html-logo.png",
+    },
+    {
+      name: "CSS",
+      procent: "78%",
+      image: process.env.PUBLIC_URL + "/images/css-logo.png",
+    },
     {
       name: "JavaScript",
       procent: "70%",
-      image: "/images/javascript-logo.png",
+      image: process.env.PUBLIC_URL + "/images/javascript-logo.png",
     },
     {
       name: "JQUERY",
       procent: "64%",
-      image: "/images/jquery-logo.png",
+      image: process.env.PUBLIC_URL + "/images/jquery-logo.png",
     },
-    { name: "React", procent: "68%", image: "/images/react-logo.png" },
-    { name: "MySQL", procent: "50%", image: "/images/mysql-logo.png" },
-    { name: "PHP", procent: "35%", image: "/images/php-logo.png" },
-    { name: "Figma", procent: "41%", image: "/images/figma-logo.png" },
-    { name: "Canva", procent: "82%", image: "/images/canva-logo.png" },
+    {
+      name: "React",
+      procent: "68%",
+      image: process.env.PUBLIC_URL + "/images/react-logo.png",
+    },
+    {
+      name: "MySQL",
+      procent: "50%",
+      image: process.env.PUBLIC_URL + "/images/mysql-logo.png",
+    },
+    {
+      name: "PHP",
+      procent: "35%",
+      image: process.env.PUBLIC_URL + "/images/php-logo.png",
+    },
+    {
+      name: "Figma",
+      procent: "41%",
+      image: process.env.PUBLIC_URL + "/images/figma-logo.png",
+    },
+    {
+      name: "Canva",
+      procent: "82%",
+      image: process.env.PUBLIC_URL + "/images/canva-logo.png",
+    },
   ];
 
   // Array of soft skills as strings
