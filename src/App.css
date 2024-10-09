@@ -72,7 +72,7 @@ a {
   font-size: 30px;
 }
 #about {
-  background-image: linear-gradient(#dfdbd6, #f8f0e7df),
+  background-image: linear-gradient(#f8f0e7, #f8f0e7df),
     url("./assets/images/education-bg.png");
   background-repeat: no-repeat;
   background-size: cover;
@@ -314,7 +314,7 @@ li::marker {
   width: 300px;
   height: 300px;
   border-radius: 50%;
-  box-shadow: 0px 0px 30px whitesmoke;
+  box-shadow: 0px 0px 20px #f8f0e7;
   margin-bottom: 20px;
 }
 .homeTittle,

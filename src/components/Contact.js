@@ -52,8 +52,7 @@ const Contact = () => {
       <div className="form-panel" id="contact_me">
         <h1 className="formTitle section-title">Contact me</h1>
         <h3>
-          I'm available to work on your project as soon as possible. Leave me a
-          message
+          Feel free to reach out, and I’ll get back to you as soon as I can
         </h3>
         <form
           id="form"
