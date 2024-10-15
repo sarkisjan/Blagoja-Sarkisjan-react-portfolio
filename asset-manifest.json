@@ -1,21 +1,17 @@
 {
   "files": {
-    "main.css": "/Blagoja-Sarkisjan-react-portfolio/static/css/main.2b0daa3b.css",
-    "main.js": "/Blagoja-Sarkisjan-react-portfolio/static/js/main.2564401b.js",
+    "main.css": "/Blagoja-Sarkisjan-react-portfolio/static/css/main.17a256fb.css",
+    "main.js": "/Blagoja-Sarkisjan-react-portfolio/static/js/main.d4114261.js",
     "static/js/453.6f4065ad.chunk.js": "/Blagoja-Sarkisjan-react-portfolio/static/js/453.6f4065ad.chunk.js",
-    "static/media/education-bg.png": "/Blagoja-Sarkisjan-react-portfolio/static/media/education-bg.cd4645c2ae51e9918e6c.png",
-    "static/media/projects-bg.png": "/Blagoja-Sarkisjan-react-portfolio/static/media/projects-bg.565a81e22027386b0a50.png",
     "static/media/home-bg.jpg": "/Blagoja-Sarkisjan-react-portfolio/static/media/home-bg.94db4c3ee40b4ea271b9.jpg",
-    "static/media/skills-bg.png": "/Blagoja-Sarkisjan-react-portfolio/static/media/skills-bg.7bdb06983c9cd19ede9a.png",
-    "static/media/contact-bg.png": "/Blagoja-Sarkisjan-react-portfolio/static/media/contact-bg.33bc850979c15def7e29.png",
     "static/media/portfolioPic.JPG": "/Blagoja-Sarkisjan-react-portfolio/static/media/portfolioPic.7754459b8b89578b92b4.JPG",
     "index.html": "/Blagoja-Sarkisjan-react-portfolio/index.html",
-    "main.2b0daa3b.css.map": "/Blagoja-Sarkisjan-react-portfolio/static/css/main.2b0daa3b.css.map",
-    "main.2564401b.js.map": "/Blagoja-Sarkisjan-react-portfolio/static/js/main.2564401b.js.map",
+    "main.17a256fb.css.map": "/Blagoja-Sarkisjan-react-portfolio/static/css/main.17a256fb.css.map",
+    "main.d4114261.js.map": "/Blagoja-Sarkisjan-react-portfolio/static/js/main.d4114261.js.map",
     "453.6f4065ad.chunk.js.map": "/Blagoja-Sarkisjan-react-portfolio/static/js/453.6f4065ad.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.2b0daa3b.css",
-    "static/js/main.2564401b.js"
+    "static/css/main.17a256fb.css",
+    "static/js/main.d4114261.js"
   ]
 }
