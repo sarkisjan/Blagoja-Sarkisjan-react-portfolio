@@ -6,6 +6,7 @@ import Tittle from "./Tittle";
 const Home = () => {
   return (
     <section id="home">
+      <div className="fixed-bg-container"></div>
       <Box className="homeBio">
         <img className="homePic" src={PortfolioPic} />
         <h1>Blagoja Sarkisjan</h1>

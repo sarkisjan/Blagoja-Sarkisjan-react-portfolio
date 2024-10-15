@@ -1,10 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Abel&display=swap");
 
-body {
-  /* overflow: -moz-scrollbars-vertical !important;
-  overflow-y: scroll !important; */
-  background-image: linear-gradient(#9e9086, #9e9086, #58504a);
-}
 * {
   font-family: "Abel", sans-serif !important;
   padding: 0px;
@@ -51,16 +46,16 @@ a {
 #contact,
 #projects,
 #skills {
+  color: whitesmoke;
   display: flex;
   flex-direction: column;
   gap: 20px;
   width: 88vw;
-  background-color: rgb(248, 240, 231);
   padding: 40px;
   border-radius: 20px;
   border-top: 4px solid #20c4cb;
-  /* box-shadow: 0px 0px 5px rgb(248, 240, 231); */
   margin: 20px 0px;
+  background-image: linear-gradient(#000000, #00000038);
 }
 #about h1,
 #projects h1,
@@ -71,14 +66,15 @@ a {
   letter-spacing: 3px;
   font-size: 30px;
 }
-#about {
+/* #about {
   background-image: linear-gradient(#f8f0e7, #f8f0e7df),
     url("./assets/images/education-bg.png");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-}
-#projects {
+ 
+} */
+/* #projects {
   background-image: linear-gradient(#f8f0e7df, #f8f0e7),
     url("./assets/images/projects-bg.png");
   background-repeat: no-repeat;
@@ -98,11 +94,11 @@ a {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-}
+} */
 .section-title {
   position: absolute;
   top: -20px;
-  background-color: rgb(248, 240, 231);
+  background-color: #000000;
   border-radius: 15px;
   padding: 3px 10px;
   border-top: 4px solid #20c4cb;
@@ -131,6 +127,11 @@ li::marker {
   align-items: center;
   min-height: 350px;
   padding: 0px 20px;
+}
+.project-card h3 {
+  margin: 5px 0px;
+  text-align: center;
+  color: #20c4cb;
 }
 
 .project-description {
@@ -275,30 +276,29 @@ li::marker {
   opacity: 1;
 }
 
-/* ----------------------------- */
-/* .fade-in {
-  opacity: 0;
-  transition: opacity 0.6s ease-in-out;
-}
-
-.fade-in.visible {
-  opacity: 1; */
-
-/* } */
-/* ------------------------------ */
-/* ---- for appearing effect --up */
-
 #home {
   position: relative;
-  top: -25px;
+  /* top: -25px;
   background-image: linear-gradient(#f8f0e734, #f8f0e734, #9e9086),
     url("./assets/images/home-bg.jpg");
   -webkit-background-size: cover;
   background-size: cover;
-  background-position: center center;
+  background-position: center center; */
   height: 100vh;
   width: 100%;
   color: whitesmoke;
+}
+.fixed-bg-container {
+  background-attachment: fixed;
+  position: fixed;
+  top: -25px;
+  background-image: linear-gradient(#00000034, #00000034),
+    url("./assets/images/home-bg.jpg");
+  background-size: cover;
+  background-size: cover;
+  background-position: center center;
+  width: 100vw;
+  height: 110vh;
 }
 .homeBio {
   position: absolute;
@@ -398,9 +398,10 @@ li::marker {
 
 /* Skill Circle Container */
 .skill-circle {
+  color: #14767a;
   position: relative;
-  width: 130px;
-  height: 130px;
+  width: 145px;
+  height: 145px;
   border-radius: 50%;
   display: flex;
   justify-content: center;
@@ -422,8 +423,8 @@ li::marker {
 /* Inner Circle where the skill name will be displayed */
 .skill-inner {
   position: absolute;
-  width: 98px;
-  height: 98px;
+  width: 115px;
+  height: 115px;
   border-radius: 50%;
   background: white;
   font-weight: bold;
@@ -440,9 +441,12 @@ li::marker {
   bottom: 50%;
   left: 50%;
   transform: translate(-50%, 50%);
-  width: 60px;
+  width: 72px;
   height: auto;
 }
+/* .skill-logo p {
+  width: 80px;
+} */
 .skill-procent {
   position: absolute;
   bottom: 0%;
@@ -471,22 +475,6 @@ li::marker {
 
 /* ----------- CONTACT FORM ---------DOWN------- */
 
-/* #contact form {
-  width: 60vw;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  align-items: center;
-} */
-
-.formTitle {
-  font-family: "Orbitron", sans-serif;
-  text-align: left;
-}
-.formTitle-msg {
-  color: #20c4cb;
-}
-
 .form-panel {
   width: 100%;
 }
@@ -497,7 +485,6 @@ li::marker {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  /* height: 70vh; */
 }
 
 .formFields {
@@ -516,11 +503,15 @@ li::marker {
 
 .inputBox .input {
   border: none;
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid #14767a;
+  color: whitesmoke;
   width: 100%;
   outline: none;
   transition: all 0.5s;
-  background-color: white;
+  background-color: #00000000;
+}
+.inputBox .input:focus {
+  border-bottom: 1px solid #20c4cb;
 }
 
 .inputBox input {
@@ -534,28 +525,28 @@ li::marker {
 
 .inputBox .floatLabel {
   position: absolute;
+  top: 0px;
   left: 0px;
   padding: 10px;
-  transition: all 0.5s;
-}
-
-.inputBox .input:valid ~ .floatLabel,
-.inputBox .input:focus ~ .floatLabel {
-  transform: translate(10px, -7px);
-  padding: 0 10px;
-  font-size: 10px;
+  padding: 6 10px;
+  font-size: 15px;
   color: rgb(201, 201, 201);
-  background-color: white;
-  border-left: 1px solid rgb(201, 201, 201);
-  border-right: 1px solid rgb(201, 201, 201);
+  transition: all 1s;
+  /* transition: all 0.5s; */
 }
 
-.inputBox .input:valid,
+.focused {
+  color: #20c4cb !important;
+  top: -25px !important;
+  left: -10px !important;
+  /* left: -10px; */
+}
+/* .inputBox .input:valid,
 .inputBox .input:focus {
   border-top: 1px solid rgb(201, 201, 201);
   border-left: 1px solid rgb(201, 201, 201);
   border-right: 1px solid rgb(201, 201, 201);
-}
+} */
 
 /* -------------------------------------------- */
 
@@ -567,6 +558,85 @@ li::marker {
   width: 45%;
   margin: 1vh;
 }
+/* ------ styling button down--------------------- */
+
+.glow-on-hover {
+  width: 220px;
+  height: 50px;
+  border: none;
+  outline: none;
+  color: #20c4cb;
+  font-size: 20px;
+  letter-spacing: 1.5px;
+  background: #111;
+  cursor: pointer;
+  position: relative;
+  z-index: 0;
+  border-radius: 10px;
+}
+
+.glow-on-hover:before {
+  content: "";
+  background: linear-gradient(
+    45deg,
+    #ff0000,
+    #ff7300,
+    #34e3e9,
+    #20c4cb,
+    #20c4cb,
+    #14767a,
+    #ff7300,
+    #ff0000
+  );
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  background-size: 400%;
+  z-index: -1;
+  filter: blur(5px);
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  animation: glowing 20s linear infinite;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  border-radius: 10px;
+}
+
+.glow-on-hover:active {
+  color: #000;
+}
+
+.glow-on-hover:active:after {
+  background: transparent;
+}
+
+.glow-on-hover:hover:before {
+  opacity: 1;
+}
+
+.glow-on-hover:after {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #111;
+  left: 0;
+  top: 0;
+  border-radius: 10px;
+}
+
+@keyframes glowing {
+  0% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 400% 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
 
 .send {
   display: flex;
@@ -574,7 +644,7 @@ li::marker {
   align-items: end;
 }
 
-.send .btn {
+/* .send .btn {
   color: #20c4cb;
   font-family: "Orbitron", sans-serif;
   width: 150px;
@@ -593,7 +663,7 @@ li::marker {
 .send h2 {
   text-align: center;
   font-size: 2em;
-}
+} */
 .error {
   color: red;
   font-size: 0.8rem;
@@ -709,6 +779,9 @@ li::marker {
     /* transform: translate(0%, 0%); */
     max-width: 350px;
     max-height: 350px;
+  }
+  .send {
+    align-items: center;
   }
 }
 @media (max-width: 480px) {

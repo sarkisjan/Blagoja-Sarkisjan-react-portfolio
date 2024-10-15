@@ -4,6 +4,8 @@ import { validateContactForm } from "../utilities/validation"; // Import validat
 
 const Contact = () => {
   const [ref, reveal] = useObserver(); // This is for the appearing effect
+  const [focused, setFocused] = useState("");
+  const [allFocused, setAllFocused] = useState(false);
 
   // State to hold form input values
   const [formData, setFormData] = useState({
@@ -24,6 +26,7 @@ const Contact = () => {
     const validationErrors = validateContactForm(formData);
 
     if (Object.keys(validationErrors).length > 0) {
+      setAllFocused(true);
       setErrors(validationErrors); // Set errors if validation fails
     } else {
       // Clear errors if validation passes
@@ -71,8 +74,19 @@ const Contact = () => {
                   placeholder=""
                   value={formData.name}
                   onChange={handleChange}
+                  onFocus={() => {
+                    setFocused("name");
+                  }}
                 />
-                <label id="nameLabel" className="floatLabel" htmlFor="name">
+                <label
+                  id="nameLabel"
+                  className={
+                    focused === "name" || allFocused
+                      ? "floatLabel focused"
+                      : "floatLabel"
+                  }
+                  htmlFor="name"
+                >
                   Name <span className="nameError"></span>
                 </label>
                 {errors.name && <span className="error">{errors.name}</span>}
@@ -87,10 +101,17 @@ const Contact = () => {
                   placeholder=""
                   value={formData.lastName}
                   onChange={handleChange}
+                  onFocus={() => {
+                    setFocused("lastName");
+                  }}
                 />
                 <label
                   id="lastNameLabel"
-                  className="floatLabel"
+                  className={
+                    focused === "lastName" || allFocused
+                      ? "floatLabel focused"
+                      : "floatLabel"
+                  }
                   htmlFor="lastName"
                 >
                   Last Name <span className="lastNameError"></span>
@@ -109,8 +130,19 @@ const Contact = () => {
                   placeholder=""
                   value={formData.email}
                   onChange={handleChange}
+                  onFocus={() => {
+                    setFocused("email");
+                  }}
                 />
-                <label id="emailLabel" className="floatLabel" htmlFor="email">
+                <label
+                  id="emailLabel"
+                  className={
+                    focused === "email" || allFocused
+                      ? "floatLabel focused"
+                      : "floatLabel"
+                  }
+                  htmlFor="email"
+                >
                   Email <span className="emailError"></span>
                 </label>
                 {errors.email && <span className="error">{errors.email}</span>}
@@ -130,8 +162,19 @@ const Contact = () => {
                   placeholder=""
                   value={formData.msg}
                   onChange={handleChange}
+                  onFocus={() => {
+                    setFocused("msg");
+                  }}
                 ></textarea>
-                <label id="msgLabel" className="floatLabel" htmlFor="msg">
+                <label
+                  id="msgLabel"
+                  className={
+                    focused === "msg" || allFocused
+                      ? "floatLabel focused"
+                      : "floatLabel"
+                  }
+                  htmlFor="msg"
+                >
                   Type Your Message Here <span className="msgError"></span>
                 </label>
                 {errors.msg && <span className="error">{errors.msg}</span>}
@@ -140,8 +183,8 @@ const Contact = () => {
           </div>
 
           <div className="send">
-            <button className="btn" type="submit">
-              <h2>Send</h2>
+            <button className="btn glow-on-hover" type="submit">
+              Send
             </button>
           </div>
         </form>
