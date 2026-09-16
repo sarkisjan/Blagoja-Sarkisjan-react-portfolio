@@ -5,6 +5,7 @@ import Tittle from "./Tittle";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import EmailIcon from "@mui/icons-material/Email";
 import DescriptionIcon from "@mui/icons-material/Description";
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
 
 const Home = () => {
   // State to track if the vertical neon drawer panel is expanded open
