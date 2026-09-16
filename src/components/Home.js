@@ -82,8 +82,19 @@ const Home = () => {
                 <GitHubIcon />
               </IconButton>
             </Tooltip>
-
-            {/* Target 2: Email Pipeline Connection */}
+            {/* Target 2: LinkedIn Corporate Network Profile Link */}
+            <Tooltip title="Connect on LinkedIn" arrow placement="right">
+              <IconButton
+                component="a"
+                href="https://www.linkedin.com/in/blagoja-sarkisjan-02941330/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="drawer-action-btn linkedin-neon"
+              >
+                <LinkedInIcon />
+              </IconButton>
+            </Tooltip>
+            {/* Target 3: Email Pipeline Connection */}
             <Tooltip title="Send me an Email" arrow placement="right">
               <IconButton
                 component="a"
@@ -94,7 +105,7 @@ const Home = () => {
               </IconButton>
             </Tooltip>
 
-            {/* Target 3: PDF Resume Downloader Trigger */}
+            {/* Target 4: PDF Resume Downloader Trigger */}
             <Tooltip title="Download my Resume (PDF)" arrow placement="right">
               <IconButton
                 component="a"
