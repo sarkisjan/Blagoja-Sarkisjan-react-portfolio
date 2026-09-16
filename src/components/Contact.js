@@ -1,13 +1,13 @@
 import React, { useState } from "react";
+import { Box, Typography, Grid } from "@mui/material"; // Integrated MUI for consistency
 import { useObserver } from "../hooks/useObserver";
-import { validateContactForm } from "../utilities/validation"; // Import validation logic
+import { validateContactForm } from "../utilities/validation";
 
 const Contact = () => {
-  const [ref, reveal] = useObserver(); // This is for the appearing effect
-  const [focused, setFocused] = useState("");
-  const [allFocused, setAllFocused] = useState(false);
+  // Hook for triggering scroll reveal animation
+  const [ref, reveal] = useObserver();
 
-  // State to hold form input values
+  // State to track form input values
   const [formData, setFormData] = useState({
     name: "",
     lastName: "",
@@ -20,176 +20,192 @@ const Contact = () => {
 
   // Handle form submission
   const handleSubmit = (e) => {
-    e.preventDefault(); // Prevent default form submission
+    e.preventDefault();
 
-    // Validate the form using the imported validation logic
+    // Validate the form fields using custom utility
     const validationErrors = validateContactForm(formData);
 
     if (Object.keys(validationErrors).length > 0) {
-      setAllFocused(true);
-      setErrors(validationErrors); // Set errors if validation fails
+      setErrors(validationErrors);
     } else {
-      // Clear errors if validation passes
       setErrors({});
-      // Here you would send the form data to the server or service
-      console.log("Form submitted", formData);
-      // Optional: You can use the form action attribute for an actual form submit
+      console.log("Form data valid, redirecting to formsubmit.co", formData);
+      // Programmatically trigger native HTML submit to dispatch data to formsubmit.co endpoint
       e.target.submit();
     }
   };
 
-  // Handle form input changes
+  // Handle real-time input change updates
   const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
+    const { name, value } = e.target;
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
+
+    // Dynamic error clearing: remove error notice once user starts correcting the field input
+    if (errors[name]) {
+      setErrors((prevErrors) => ({
+        ...prevErrors,
+        [name]: "",
+      }));
+    }
   };
 
   return (
-    <section
+    <Box
+      component="section"
       id="contact"
       ref={ref}
       className={`appear-section ${reveal ? "active" : ""}`}
+      sx={{ width: "100%", py: 8 }}
     >
-      <div className="form-panel" id="contact_me">
-        <h1 className="formTitle section-title">Contact me</h1>
-        <h3>
+      <Box
+        className="form-panel"
+        id="contact_me"
+        sx={{ maxWidth: "800px", margin: "0 auto", px: 2 }}
+      >
+        <h1 className="section-title">Contact me</h1>
+
+        <Typography
+          variant="h6"
+          sx={{
+            color: "rgba(255,255,255,0.7)",
+            textAlign: "center",
+            mb: 5,
+            fontWeight: 400,
+          }}
+        >
           Feel free to reach out, and I’ll get back to you as soon as I can
-        </h3>
+        </Typography>
+
+        {/* Traditional submission pipeline connected securely to FormSubmit API handler */}
         <form
           id="form"
           action="https://formsubmit.co/baze_sarkisjan@yahoo.com"
           method="POST"
           onSubmit={handleSubmit}
         >
-          <div className="formFields">
-            <div className="formSender">
+          {/* FormSubmit Configuration settings hidden inputs */}
+          <input
+            type="hidden"
+            name="_subject"
+            value="New Contact from Portfolio!"
+          />
+          <input type="hidden" name="_captcha" value="false" />{" "}
+          {/* Disables annoying captcha redirect templates */}
+          <Grid container spacing={3}>
+            {/* First Name Input Field */}
+            <Grid item xs={12} sm={6}>
               <div className="inputBox">
                 <input
                   className="input"
                   type="text"
                   id="name"
                   name="name"
-                  placeholder=""
+                  placeholder=" " /* Keeping a space here helps CSS :placeholder-shown focus states */
                   value={formData.name}
                   onChange={handleChange}
-                  onFocus={() => {
-                    setFocused("name");
-                  }}
                 />
+                {/* Bug Fix: Label stays floated up if input has value OR is active */}
                 <label
-                  id="nameLabel"
-                  className={
-                    focused === "name" || allFocused
-                      ? "floatLabel focused"
-                      : "floatLabel"
-                  }
+                  className={`floatLabel ${formData.name ? "focused" : ""}`}
                   htmlFor="name"
                 >
-                  Name <span className="nameError"></span>
+                  Name
                 </label>
-                {errors.name && <span className="error">{errors.name}</span>}
+                {errors.name && (
+                  <span className="error-message-text">{errors.name}</span>
+                )}
               </div>
+            </Grid>
 
+            {/* Last Name Input Field */}
+            <Grid item xs={12} sm={6}>
               <div className="inputBox">
                 <input
                   className="input"
                   type="text"
                   id="lastName"
                   name="lastName"
-                  placeholder=""
+                  placeholder=" "
                   value={formData.lastName}
                   onChange={handleChange}
-                  onFocus={() => {
-                    setFocused("lastName");
-                  }}
                 />
                 <label
-                  id="lastNameLabel"
-                  className={
-                    focused === "lastName" || allFocused
-                      ? "floatLabel focused"
-                      : "floatLabel"
-                  }
+                  className={`floatLabel ${formData.lastName ? "focused" : ""}`}
                   htmlFor="lastName"
                 >
-                  Last Name <span className="lastNameError"></span>
+                  Last Name
                 </label>
                 {errors.lastName && (
-                  <span className="error">{errors.lastName}</span>
+                  <span className="error-message-text">{errors.lastName}</span>
                 )}
               </div>
+            </Grid>
 
+            {/* Email Address Input Field */}
+            <Grid item xs={12}>
               <div className="inputBox">
                 <input
                   className="input"
                   type="email"
                   id="email"
                   name="email"
-                  placeholder=""
+                  placeholder=" "
                   value={formData.email}
                   onChange={handleChange}
-                  onFocus={() => {
-                    setFocused("email");
-                  }}
                 />
                 <label
-                  id="emailLabel"
-                  className={
-                    focused === "email" || allFocused
-                      ? "floatLabel focused"
-                      : "floatLabel"
-                  }
+                  className={`floatLabel ${formData.email ? "focused" : ""}`}
                   htmlFor="email"
                 >
-                  Email <span className="emailError"></span>
+                  Email Address
                 </label>
-                {errors.email && <span className="error">{errors.email}</span>}
+                {errors.email && (
+                  <span className="error-message-text">{errors.email}</span>
+                )}
               </div>
+            </Grid>
 
-              <input type="hidden" name="_subject" value="New Contact" />
-            </div>
-
-            <div className="formMsg">
+            {/* Main Message Text Area Input Box */}
+            <Grid item xs={12}>
               <div className="inputBox">
                 <textarea
                   className="input"
                   name="msg"
                   id="msg"
-                  cols="30"
-                  rows="10"
-                  placeholder=""
+                  rows="6"
+                  placeholder=" "
                   value={formData.msg}
                   onChange={handleChange}
-                  onFocus={() => {
-                    setFocused("msg");
-                  }}
                 ></textarea>
                 <label
-                  id="msgLabel"
-                  className={
-                    focused === "msg" || allFocused
-                      ? "floatLabel focused"
-                      : "floatLabel"
-                  }
+                  className={`floatLabel ${formData.msg ? "focused" : ""}`}
                   htmlFor="msg"
                 >
-                  Type Your Message Here <span className="msgError"></span>
+                  Type Your Message Here
                 </label>
-                {errors.msg && <span className="error">{errors.msg}</span>}
+                {errors.msg && (
+                  <span className="error-message-text">{errors.msg}</span>
+                )}
               </div>
-            </div>
-          </div>
+            </Grid>
 
-          <div className="send">
-            <button className="btn glow-on-hover" type="submit">
-              Send
-            </button>
-          </div>
+            {/* Form Submit Action Control Button */}
+            <Grid
+              item
+              xs={12}
+              sx={{ display: "flex", justifyContent: "center", mt: 2 }}
+            >
+              <button className="btn glow-on-hover" type="submit">
+                Send Message
+              </button>
+            </Grid>
+          </Grid>
         </form>
-      </div>
-    </section>
+      </Box>
+    </Box>
   );
 };
 

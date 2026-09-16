@@ -16,7 +16,6 @@ export function useReveal() {
       const windowHeight = window.innerHeight;
 
       // Get the distance from the top of the viewport to the top of the current 'appear-section' element
-      //   const revealTop = appear.getBoundingClientRect().top;
 
       const revealTop = ref.getBoundingClientRect().top;
 

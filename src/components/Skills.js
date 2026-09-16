@@ -1,134 +1,171 @@
-import React from "react"; // Import React to create components
-import { Box, Stack } from "@mui/material"; // Import components from Material UI
-import { useObserver } from "../hooks/useObserver"; // Import the useObserver hook for scroll appearance effects
-import SkillCircle from "./SkillCircle"; // Import the SkillCircle component for rendering each skill
+import React from "react";
+import { Box, Typography, Grid } from "@mui/material";
+import { useObserver } from "../hooks/useObserver";
+import SkillCircle from "./SkillCircle";
+import "../App.css";
 
 const Skills = () => {
-  const [ref, reveal] = useObserver(); // Call the useObserver hook to add the reveal effect on scroll
+  // Hook for triggering scroll reveal animation
+  const [ref, reveal] = useObserver();
 
-  // Array of technical skills with names and percentages (skill level)
-  const skills = [
+  // Clean data array for technical skills
+  const technicalSkills = [
     {
       name: "HTML",
-      procent: "82%",
+      level: 82,
       image: process.env.PUBLIC_URL + "/images/html-logo.png",
     },
     {
       name: "CSS",
-      procent: "78%",
+      level: 78,
       image: process.env.PUBLIC_URL + "/images/css-logo.png",
     },
     {
       name: "JavaScript",
-      procent: "70%",
+      level: 70,
       image: process.env.PUBLIC_URL + "/images/javascript-logo.png",
     },
     {
-      name: "JQUERY",
-      procent: "64%",
+      name: "jQuery",
+      level: 64,
       image: process.env.PUBLIC_URL + "/images/jquery-logo.png",
     },
     {
       name: "React",
-      procent: "68%",
+      level: 68,
       image: process.env.PUBLIC_URL + "/images/react-logo.png",
     },
     {
       name: "MySQL",
-      procent: "50%",
+      level: 50,
       image: process.env.PUBLIC_URL + "/images/mysql-logo.png",
     },
     {
       name: "PHP",
-      procent: "35%",
+      level: 35,
       image: process.env.PUBLIC_URL + "/images/php-logo.png",
     },
     {
       name: "Figma",
-      procent: "41%",
+      level: 41,
       image: process.env.PUBLIC_URL + "/images/figma-logo.png",
     },
     {
       name: "Canva",
-      procent: "82%",
+      level: 82,
       image: process.env.PUBLIC_URL + "/images/canva-logo.png",
     },
   ];
 
-  // Array of soft skills as strings
+  // Clean data array for soft skills
   const softSkills = [
-    {
-      name: "Analytical skills",
-      procent: "90%",
-    },
-    {
-      name: "Problem-Solver",
-      procent: "88%",
-    },
-    {
-      name: "Adaptability",
-      procent: "80%",
-    },
-    {
-      name: "Creativity",
-      procent: "75%",
-    },
-
-    {
-      name: "Persistent",
-      procent: "80%",
-    },
-    {
-      name: "Attention to Detail",
-      procent: "85%",
-    },
-    {
-      name: "Empathy",
-      procent: "77%",
-    },
+    { name: "Analytical skills", level: 90 },
+    { name: "Problem-Solver", level: 88 },
+    { name: "Adaptability", level: 80 },
+    { name: "Creativity", level: 75 },
+    { name: "Persistent", level: 80 },
+    { name: "Attention to Detail", level: 85 },
+    { name: "Empathy", level: 77 },
   ];
 
   return (
-    // Container for the skills section, uses Stack for layout and ref for observer effect
-    <Stack
+    <Box
       id="skills"
-      ref={ref} // Ref is used to track visibility when the section enters the viewport
-      className={`appear-section ${reveal ? "active" : ""}`} // Conditional class for revealing the section when it becomes visible
+      ref={ref}
+      className={`appear-section ${reveal ? "active" : ""}`}
+      sx={{
+        width: "100%",
+        py: 6,
+        px: 3,
+        // IMPORTANT: We style the main container with MUI to override bad legacy CSS behaviors
+        display: "block !important",
+      }}
     >
-      <Box className="skills-box" width="50vw">
-        <h1 className="section-title">Technical Skills</h1>
-        <div className="skills-container">
-          {/* Map through the skills array and render a SkillCircle for each skill */}
-          {skills.map(
-            (skill, index) =>
-              reveal && (
-                <SkillCircle
-                  key={index}
-                  name={skill.name}
-                  procent={skill.procent}
-                  img={skill.image}
-                />
-              )
-          )}
-        </div>
-      </Box>
-      <Box className="skills-box" width="50vw">
-        <h1 className="section-title">Soft Skills</h1>
-        <div className="skills-container">
-          {/* Map through the softSkills array and render each soft skill as a list item */}
-          {softSkills.map(
-            (skill, index) =>
-              reveal && (
-                <SkillCircle
-                  key={index}
-                  name={skill.name}
-                  procent={skill.procent}
-                />
-              )
-          )}
-        </div>
-      </Box>
-    </Stack>
+      <h1 className="section-title">Skills</h1>
+      {/* MUI Grid Layout separating Technical and Soft Skills into 2 clean columns */}
+      <Grid container spacing={6} justifyContent="center">
+        {/* Technical Skills Column */}
+        <Grid item xs={12} md={6}>
+          {/* Pure MUI Typography component - strictly NO legacy CSS classes attached */}
+          <Typography
+            variant="h4"
+            sx={{
+              mb: 4,
+              fontWeight: 700,
+              color: "#20c4cb", // Using your signature cyan color directly
+              textAlign: "center",
+              letterSpacing: "2px",
+              textTransform: "uppercase",
+            }}
+          >
+            Technical Skills
+          </Typography>
+
+          {/* Flex grid box ensuring cards wrap horizontally fluidly */}
+          <Box
+            sx={{
+              display: "flex",
+              flexWrap: "wrap",
+              gap: "20px",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          >
+            {technicalSkills.map(
+              (skill, index) =>
+                reveal && (
+                  <SkillCircle
+                    key={index}
+                    name={skill.name}
+                    level={skill.level}
+                    img={skill.image}
+                  />
+                ),
+            )}
+          </Box>
+        </Grid>
+
+        {/* Soft Skills Column */}
+        <Grid item xs={12} md={6}>
+          {/* Pure MUI Typography component - strictly NO legacy CSS classes attached */}
+          <Typography
+            variant="h4"
+            sx={{
+              mb: 4,
+              fontWeight: 700,
+              color: "#20c4cb",
+              textAlign: "center",
+              letterSpacing: "2px",
+              textTransform: "uppercase",
+            }}
+          >
+            Soft Skills
+          </Typography>
+
+          {/* Flex grid box for soft skills */}
+          <Box
+            sx={{
+              display: "flex",
+              flexWrap: "wrap",
+              gap: "20px",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          >
+            {softSkills.map(
+              (skill, index) =>
+                reveal && (
+                  <SkillCircle
+                    key={index}
+                    name={skill.name}
+                    level={skill.level}
+                  />
+                ),
+            )}
+          </Box>
+        </Grid>
+      </Grid>
+    </Box>
   );
 };
 

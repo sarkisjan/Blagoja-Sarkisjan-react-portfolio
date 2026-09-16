@@ -11,29 +11,88 @@ a {
   color: whitesmoke;
 }
 
-/* h1 {
-  color: #20C4CB;
-} */
-.navbar {
-  z-index: 1;
-  /* background-color: transparent; */
+/* The main outer navbar wrapper pinned securely to the top of the layout viewport */
+.navbar-modern {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 2000; /* High index configuration protecting it above scrolling card dimensions */
+
+  /* Ultra modern frosted-glass blur overlay blueprint */
+  background: rgba(
+    18,
+    18,
+    18,
+    0.65
+  ); /* Highly transparent matching dark profile matrix */
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(
+    12px
+  ); /* Legacy Apple Safari hardware scaling support patch */
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06); /* Razor thin premium separator line indicator */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  padding: 16px 0;
+  transition: all 0.3s ease;
 }
-.navbar-list {
-  width: 100vw;
+
+/* Flex row framework coordinating target horizontal distributions inside the nav grid */
+.navbar-list-modern {
+  max-width: 1200px;
+  margin: 0 auto;
   display: flex;
   flex-direction: row;
   list-style: none;
-  /* background-color: transparent; */
-  justify-content: space-around;
-  padding: 2px 5px;
+  justify-content: center; /* Center links for a clean, balanced interface profile layout */
+  gap: 50px; /* Uniform spacious layout clearance separation spacing gap sizes */
+  padding: 0 20px;
 }
-.navbar-list li a {
-  color: whitesmoke;
-  /* font-weight: bold; */
+
+/* Target textual interactive typography settings inside lists definitions */
+.navbar-list-modern li a {
+  color: rgba(255, 255, 255, 0.75);
+  text-decoration: none;
   text-transform: uppercase;
+  font-size: 0.95rem;
+  font-weight: 500;
+  letter-spacing: 2px;
+  position: relative; /* Setup absolute anchors tracking underlying pointer animations underneath */
+  padding: 6px 0;
+  transition: color 0.25s ease;
 }
-.navbar-list li a:hover {
+
+/* Interactive underline border shift response layout tracking tracking */
+.navbar-list-modern li a::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0; /* Starts compressed inside standard rest positions profile layout state */
+  height: 2px;
+  background-color: #20c4cb; /* Your signature portfolio cyan tracking palette key */
+  transition: width 0.3s ease; /* Expands outwards fluidly on mouse tracking overrides */
+}
+
+/* Active action cursor properties tracking fields responses */
+.navbar-list-modern li a:hover {
   color: #20c4cb;
+}
+
+/* Direct expanding slide alignment blueprint for active pseudo elements underlines */
+.navbar-list-modern li a:hover::after {
+  width: 100%;
+}
+
+/* Responsive adjustment scaling rules targeting tight screen smartphone displays views */
+@media (max-width: 600px) {
+  .navbar-list-modern {
+    gap: 25px; /* Compresses item separations down gracefully inside narrow screens layouts */
+  }
+  .navbar-list-modern li a {
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+  }
 }
 
 .main-container {
@@ -41,7 +100,7 @@ a {
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-}
+} /* Core container styles for legacy page layout sections */
 #about,
 #contact,
 #projects,
@@ -56,7 +115,10 @@ a {
   border-top: 4px solid #20c4cb;
   margin: 20px 0px;
   background-image: linear-gradient(#000000, #00000038);
+  position: relative; /* Keeps absolute positioned titles relative to their parent box */
 }
+
+/* Global color and typography tracking for core H1 section headers */
 #about h1,
 #projects h1,
 #skills h1,
@@ -66,68 +128,103 @@ a {
   letter-spacing: 3px;
   font-size: 30px;
 }
-/* #about {
-  background-image: linear-gradient(#f8f0e7, #f8f0e7df),
-    url("./assets/images/education-bg.png");
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
- 
-} */
-/* #projects {
-  background-image: linear-gradient(#f8f0e7df, #f8f0e7),
-    url("./assets/images/projects-bg.png");
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-}
-#skills {
-  background-image: linear-gradient(#f8f0e7, #f8f0e7df),
-    url("./assets/images/skills-bg.png");
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-}
-#contact {
-  background-image: linear-gradient(#f8f0e7df, #f8f0e7),
-    url("./assets/images/contact-bg.png");
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-} */
+
+/* Default styling for legacy floating layout section headers */
 .section-title {
-  position: absolute;
-  top: -20px;
+  position: absolute !important;
+  top: -20px !important;
   background-color: #000000;
   border-radius: 15px;
-  padding: 3px 10px;
+  padding: 3px 21px;
   border-top: 4px solid #20c4cb;
   text-wrap: wrap;
 }
+
+/* Bug Fix: Neutralize absolute positioning inside Skills layout sub-columns */
+.skills-box .section-title {
+  /* position: relative !important; */
+  /* top: 0 !important; */
+  background-color: transparent !important;
+  border-top: none !important;
+  padding: 0 !important;
+  margin-bottom: 24px;
+}
+
+/* Utility reset overrides for list styles and custom list bullet colors */
 .noStyle {
   list-style-type: none;
 }
 li::marker {
   color: #20c4cb;
 }
-/* Main layout for project cards */
-.projects-list {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
+
+/* Grid layout overrides: Keeps structural alignment clean within the new system */
+.projects-grid-list {
+  margin-left: 0px !important;
+  margin-top: 0px !important;
+  width: 100% !important;
+}
+.projects-grid-list > .MuiGrid-item {
+  padding-left: 16px !important;
+  padding-right: 16px !important;
 }
 
-/* Layout for project description and images */
+/* Card specific structural layout definitions for legacy templates */
+/* ==========================================================================
+   PROJECT ICON BUTTON ACTIONS PANEL STYLES
+   ========================================================================== */
+
+/* Main wrapping deck holding the action control button layers side-by-side */
+.project-actions-wrapper {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px; /* Uniform spacing separation layout geometry between indicators */
+}
+
+/* Base custom parameters overriding core MUI IconButton layout features */
+.action-icon-btn {
+  color: rgba(255, 255, 255, 0.6) !important;
+  background-color: rgba(255, 255, 255, 0.04) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  padding: 10px !important;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+/* Shared pop hover reaction profile properties tracking active cursor fields */
+.action-icon-btn:hover {
+  color: #000 !important; /* Flips icon inner graphics text dark for contrast depth */
+  transform: translateY(
+    -4px
+  ); /* Suave floating vertical pop elevation shift blueprint */
+}
+
+/* Individual website global action brand palette fill indicator */
+.web-btn:hover {
+  background-color: #20c4cb !important; /* Signature custom cyan accents fill */
+  box-shadow: 0 0 15px rgba(32, 196, 203, 0.5) !important;
+  border-color: #20c4cb !important;
+}
+
+/* Individual GitHub core brand identity coloring mapping overlay values */
+.github-btn:hover {
+  background-color: #20c4cb !important; /* Sleek stark pure code white mask overlay execution */
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.4) !important;
+  border-color: #20c4cb !important;
+}
+
 .project-info {
   position: relative;
   display: flex;
   flex-direction: row-reverse;
-  justify-content: space-between; /* Description on left, images on right */
+  justify-content: space-between;
   gap: 100px;
   align-items: center;
   min-height: 350px;
-  padding: 0px 20px;
+  padding: 20px;
 }
+
 .project-card h3 {
   margin: 5px 0px;
   text-align: center;
@@ -135,11 +232,9 @@ li::marker {
 }
 
 .project-description {
-  flex: 1; /* Allow description to take available space */
+  flex: 1;
   text-align: justify;
   transition: all 2s;
-
-  /* display: inline-block; */
 }
 
 .project-description p {
@@ -152,7 +247,7 @@ li::marker {
   display: none;
 }
 
-/* Project Images Layout */
+/* Project Images stacking layout engine */
 .project-img-container {
   max-width: 400px;
   min-height: 250px;
@@ -163,19 +258,19 @@ li::marker {
   right: 0px;
   display: flex;
   flex-direction: column;
-  /* gap: 10px; */
 }
 
 .project-img {
   position: absolute;
   right: 0px;
   top: 0px;
-  max-width: 100%; /* Thumbnail size */
+  max-width: 100%;
   max-height: 100%;
   cursor: pointer;
   transition: transform 0.2s ease-in-out;
-  /* transform: rotate(90deg); */
 }
+
+/* Dynamic shifting for realistic thumbnail angles stack */
 .project-img:nth-child(1n) {
   transform: rotate(-5deg);
 }
@@ -187,26 +282,37 @@ li::marker {
 }
 
 .project-img:hover {
-  transform: scale(1.05); /* Hover effect to make image pop */
+  transform: scale(1.05);
 }
+
 .projectBorder {
   color: #20c4cb;
 }
 
-/* Modal Layout */
+/* Modal Layout ANIMATION AND TRANSITION ENGINE*/
+
 .modal {
   position: fixed;
-  z-index: 100;
+  z-index: 1000; /* Increased z-index to ensure it securely overlays sticky headers */
   left: 0;
-  top: -4px;
+  top: 0;
   width: 100%;
   height: 100vh;
-  background-color: rgba(0, 0, 0, 0.8); /* Background overlay */
+  background-color: rgba(
+    0,
+    0,
+    0,
+    0.85
+  ); /* Slightly darker for better image focus */
   display: flex;
   justify-content: center;
   align-items: center;
+
+  /* Trigger the global fade-in animation */
+  animation: fadeInModal 0.3s cubic-bezier(0.4, 0, 0.2, 1) forwards;
 }
 
+/* The structural container housing the image and action slide controls */
 .modal-content {
   position: relative;
   max-width: 80%;
@@ -214,53 +320,126 @@ li::marker {
   display: flex;
   align-items: center;
   justify-content: center;
+
+  /* Trigger the zoom-in scaling animation specifically on the inner assets */
+  animation: zoomInContent 0.35s cubic-bezier(0.34, 1.56, 0.64, 1) forwards; /* Smooth bouncy easeOutBack curve */
 }
 
+/* Base structural properties tracking the active expanded snapshot */
 .modal-img {
   max-width: 100%;
   max-height: 85vh;
+  border-radius: 8px;
+  box-shadow: 0 10px 40px rgba(0, 242, 254, 0.2); /* Subtle signature cyan glow behind active image */
+}
+
+/* --- ANIMATION TIMELINES KEYFRAMES --- */
+
+/* Smooth opacity fade-in for the dimming backdrop overlay screen */
+@keyframes fadeInModal {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Bouncy scale-up zoom effect for the screenshot graphic asset */
+@keyframes zoomInContent {
+  from {
+    opacity: 0;
+    transform: scale(0.75) translateY(20px); /* Starts smaller and slightly lower down */
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0); /* Snaps cleanly into center focus */
+  }
 }
 
 /* Close button */
 .close-button {
   position: absolute;
-  top: 10px;
-  right: 10px;
+  top: -40px;
+  right: -20px;
   color: white;
   font-size: 30px;
+  text-align: center;
   cursor: pointer;
+  border-radius: 50%;
 }
 
-/* Navigation buttons */
+/* MODAL SLIDER IMAGE SLIDE TRANSITION ENGINE */
+/* The expanded image asset target inside the active carousel viewport */
+.modal-img-animated {
+  max-width: 100%;
+  max-height: 85vh;
+  border-radius: 8px;
+  box-shadow: 0 10px 40px rgba(0, 242, 254, 0.25);
+
+  /* Trigger layout slide transition timeline whenever the React key changes */
+  animation: slideInPhoto 0.3s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+/* Image navigation slider action control buttons setup */
 .modal-prev,
 .modal-next {
   position: absolute;
   top: 50%;
-  background-color: rgba(0, 0, 0, 0.5);
-  color: white;
-  border: none;
-  padding: 10px;
+  background-color: rgba(0, 0, 0, 0.4);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 14px 18px;
   cursor: pointer;
-  font-size: 24px;
+  font-size: 20px;
   transform: translateY(-50%);
+  border-radius: 50%; /* Modern circular design button shape */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1010;
+  transition: all 0.25s ease; /* Fixed legacy 5s latency slowdown bug */
 }
 
 .modal-prev {
-  left: 10px;
+  left: -60px;
 }
 
 .modal-next {
-  right: 10px;
+  right: -60px;
 }
 
-/* Hover effects on buttons */
+/* Fluid hover properties tracking cursor feedback */
 .modal-prev:hover,
 .modal-next:hover {
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: rgba(
+    32,
+    196,
+    203,
+    0.8
+  ); /* Fills with your signature portfolio cyan accent on hover */
+  border-color: #20c4cb;
+  color: #000; /* Flips arrow icon text dark for high contrast readability */
+  box-shadow: 0 0 15px rgba(32, 196, 203, 0.4);
+}
+
+/* --- CAROUSEL SLIDE TIMELINE KEYFRAMES --- */
+
+/* Clean scale-up and subtle fade transition layout profile */
+@keyframes slideInPhoto {
+  from {
+    opacity: 0;
+    transform: scale(0.96); /* Elegant pop expansion index scale blueprint */
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
 
 .close-button:hover {
   color: red;
+  transition: all 0.5s ease;
 }
 /* ---- for appearing effect --down*/
 
@@ -278,23 +457,17 @@ li::marker {
 
 #home {
   position: relative;
-  /* top: -25px;
-  background-image: linear-gradient(#f8f0e734, #f8f0e734, #9e9086),
-    url("./assets/images/home-bg.jpg");
-  -webkit-background-size: cover;
-  background-size: cover;
-  background-position: center center; */
   height: 100vh;
   width: 100%;
   color: whitesmoke;
 }
 .fixed-bg-container {
-  background-attachment: fixed;
   position: fixed;
   top: -25px;
-  background-image: linear-gradient(#00000034, #00000034),
+  background-image:
+    linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.95)),
     url("./assets/images/home-bg.jpg");
-  background-size: cover;
+  background-attachment: fixed;
   background-size: cover;
   background-position: center center;
   width: 100vw;
@@ -314,7 +487,7 @@ li::marker {
   width: 300px;
   height: 300px;
   border-radius: 50%;
-  box-shadow: 0px 0px 20px #f8f0e7;
+  box-shadow: 0px 0px 30px rgba(0, 242, 254, 0.35);
   margin-bottom: 20px;
 }
 .homeTittle,
@@ -352,10 +525,6 @@ li::marker {
   opacity: 0;
   animation: fadeIn 1.5s forwards;
 }
-/* .letter {
-  opacity: 0;
-  animation: fadeIn 0.5s forwards;
-} */
 
 @keyframes fadeIn {
   0% {
@@ -372,105 +541,274 @@ li::marker {
   }
 }
 
-/* @keyframes fadeOut {
+/* ----- up animation for tittle ----------- */
+
+/* FLOATING VERTICAL NEON SIDEBAR WIDGET STYLES */
+/* Main widget shell pinned cleanly to the middle left browser perimeter */
+.floating-neon-vertical-tab {
+  position: fixed;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2500; /* Layered securely on top of all overlay screens layout profiles */
+  background: rgba(18, 18, 18, 0.88);
+  backdrop-filter: blur(12px);
+  border-radius: 0 16px 16px 0; /* Premium rounded right corners borders blueprints */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  box-shadow: 0 0 25px rgba(32, 196, 203, 0.15);
+  transition: all 0.45s cubic-bezier(0.25, 1, 0.5, 1); /* Ultra fluid expansion transition mechanics */
+}
+
+/* Collapsed resting status frame layout defaults */
+.vertical-drawer-collapsed {
+  width: 45px;
+  height: 180px;
+  cursor: pointer;
+  border: 1px solid rgba(32, 196, 203, 0.25);
+}
+
+/* Expanded active status running dimensions: scales up vertically gracefully */
+.vertical-drawer-expanded {
+  width: 85px;
+  height: 320px; /* Expands height boundaries downwards to host items comfortably */
+  cursor: pointer;
+  border: 1px solid rgba(32, 196, 203, 0.6);
+  box-shadow: 0 0 35px rgba(32, 196, 203, 0.4);
+}
+
+/* Conic gradient backdrop drawing the neon chasing light frame beam border lines loop */
+.floating-neon-vertical-tab::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: conic-gradient(
+    transparent,
+    transparent,
+    #20c4cb,
+    /* Your core signature cyan color brand accent */ transparent
+  );
+  animation: spinVerticalGlow 4s linear infinite;
+  z-index: -1;
+}
+
+/* Internal dark structural core shell masking out the thin 2px accent outline border layout */
+.neon-border-glow-line-vertical {
+  position: absolute;
+  inset: 2px;
+  background: #121212;
+  border-radius: 0 14px 14px 0;
+  z-index: 0;
+}
+
+/* Centered title lettering block inside resting collapsed conditions panels */
+.vertical-tab-handle-text {
+  z-index: 2;
+  transform: rotate(-90deg);
+  color: #20c4cb;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  white-space: nowrap;
+}
+
+/* Inner vertical layouts wrapper lining up icon buttons elements neatly from top to bottom */
+.inner-vertical-drawer-actions {
+  display: flex;
+  flex-direction: column; /* Switched layout flow logic to linear vertical columns grid */
+  justify-content: center;
+  align-items: center;
+  gap: 40px; /* Uniform spacing buffer cleared vertically between buttons */
+  width: 100%;
+  height: 100%;
+  position: relative;
+  z-index: 2;
+  padding: 15px 0;
+}
+
+/* Shared structural rules overriding core Material-UI IconButton styles */
+.drawer-action-btn {
+  color: rgba(255, 255, 255, 0.6) !important;
+  background-color: rgba(255, 255, 255, 0.03) !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  padding: 8px !important;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+/* Interactive zoom float reactions on active tracking entries */
+.drawer-action-btn:hover {
+  color: #000000 !important;
+  transform: scale(1.1); /* Gentle scaling enlargement feedback shape */
+}
+
+/* Individual neon glow brand coloring palettes mapping rules overrides */
+.github-neon:hover {
+  background-color: #ffffff !important;
+  border-color: #ffffff !important;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.5) !important;
+}
+
+.email-neon:hover {
+  background-color: #20c4cb !important;
+  border-color: #20c4cb !important;
+  box-shadow: 0 0 15px rgba(32, 196, 203, 0.5) !important;
+}
+
+.cv-neon:hover {
+  background-color: #ffaa00 !important;
+  border-color: #ffaa00 !important;
+  box-shadow: 0 0 15px rgba(255, 170, 0, 0.5) !important;
+}
+
+/* --- CONIC ROTATION MOTOR SPEED KEYFRAMES --- */
+@keyframes spinVerticalGlow {
   0% {
-    opacity: 1;
-    transform: translateY(-20px);
+    transform: rotate(0deg);
   }
   100% {
-    opacity: 0;
-    transform: translateY(-20px);
+    transform: rotate(360deg);
   }
-} */
+}
 
-/* ----- up animation for tittle ----------- */
+/* Mobile responsive layout shift engine logic mappings for touch display panels screens */
+@media (max-width: 750px) {
+  .vertical-drawer-expanded {
+    width: 60px;
+    height: 250px;
+  }
+  .inner-vertical-drawer-actions {
+    gap: 20px;
+  }
+}
 
 .aboutBio {
   text-align: justify;
 }
-
-#skills {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  align-items: start;
+/* Cleans structural tracking replacement for secondary paragraph block margins */
+.aboutBio-secondary {
+  margin-top: 16px;
 }
 
-/* Skill Circle Container */
-.skill-circle {
-  color: #14767a;
-  position: relative;
-  width: 145px;
-  height: 145px;
+/* Wrapper alignment base targeting about social items layer */
+.about-social-wrapper {
+  margin-top: 24px;
+  display: flex;
+  justify-content: flex-start; /* Aligns the icon perfectly with the left text margin */
+  align-items: center;
+}
+
+/* Custom override rules styling for the profile redirect GitHub button icon */
+.about-github-btn {
+  color: rgba(255, 255, 255, 0.6) !important;
+  background-color: rgba(255, 255, 255, 0.04) !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  padding: 12px !important;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+/* Elegant sleek stark white pop reaction on user cursor hover entrance */
+.about-github-btn:hover {
+  background-color: #ffffff !important;
+  border-color: #ffffff !important;
+  color: #000000 !important; /* Flips graphic nodes inner path vector text dark for contrast */
+  transform: translateY(-4px); /* Suave floating elevation lift shift physics */
+  box-shadow: 0 5px 20px rgba(255, 255, 255, 0.35); /* Soft radial white cloud halo glow bloom */
+}
+/* Главна картичка која го содржи кругот и текстот */
+.modern-skill-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 20px;
+  width: 140px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.modern-skill-card:hover {
+  transform: translateY(-5px);
+  background: rgba(0, 242, 254, 0.05);
+  border-color: rgba(0, 242, 254, 0.3);
+  box-shadow: 0 10px 30px rgba(0, 242, 254, 0.1);
+}
+
+/* Самиот круг со прогрес */
+.skill-circle-modern {
+  width: 85px;
+  height: 85px;
   border-radius: 50%;
   display: flex;
-  justify-content: center;
   align-items: center;
-  margin: 5px;
-  transition: all 0.7s;
-
-  /* opacity: 0; */
-}
-.skill-circle:hover {
-  transform: scale(1.05);
-  background: conic-gradient(
-    #34e3e9 0% calc(var(--percent) * 1%),
-    #dcdcdc calc(var(--percent) * 1%) 100%
-  ) !important;
-  /* background-color: #38e1e7 !important; */
+  justify-content: center;
+  transition: transform 0.3s ease;
 }
 
-/* Inner Circle where the skill name will be displayed */
-.skill-inner {
-  position: absolute;
-  width: 115px;
-  height: 115px;
+/* Внатрешниот дел на кругот каде што стои логото */
+.skill-inner-modern {
+  width: 75px;
+  height: 75px;
+  background: #121212; /* Темна позадина за логото да не отскокнува */
   border-radius: 50%;
-  background: white;
-  font-weight: bold;
-  font-size: 14px;
-  /* justify-content: center; */
-  /* flex-direction: column;
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  gap: 2px; */
-}
-.skill-logo {
-  position: absolute;
-  bottom: 50%;
-  left: 50%;
-  transform: translate(-50%, 50%);
-  width: 72px;
-  height: auto;
-}
-/* .skill-logo p {
-  width: 80px;
-} */
-.skill-procent {
-  position: absolute;
-  bottom: 0%;
-  left: 50%;
-  transform: translateX(-50%);
-  font-weight: bold;
-  color: #14767a;
-  background-color: rgba(245, 245, 245, 0.427);
-  border-radius: 5px;
-  padding: 1px 2px;
+  justify-content: center;
+  overflow: hidden;
 }
 
-/* Skills Container */
-.skills-container,
-.skills-box {
+/* Wrapper за логото за да се спречат чудни бели рабови */
+.logo-wrapper {
+  width: 70%;
+  height: 70%;
   display: flex;
-  flex-wrap: wrap;
+  align-items: center;
   justify-content: center;
+}
+
+.skill-logo-modern {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  /* Го прави логото малку посветло за да одговара на темна тема */
+  filter: drop-shadow(0px 2px 5px rgba(0, 0, 0, 0.5));
+}
+
+/* За меките вештини (soft skills) кои немаат слика, прикажуваме иницијали */
+.soft-skill-initials {
+  color: #00f2fe;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+/* Текстуални информации под кругот */
+.skill-info-below {
+  margin-top: 15px;
   text-align: center;
-  gap: 30px;
-  /* margin-top: 15px; */
 }
-.skills-box {
-  gap: 30px;
+
+.skill-name-modern {
+  color: #ffffff;
+  font-size: 0.95rem;
+  font-weight: 600;
+  margin: 0 0 4px 0;
+}
+
+.skill-percentage-badge {
+  color: #00f2fe;
+  font-size: 0.8rem;
+  background: rgba(0, 242, 254, 0.1);
+  padding: 2px 8px;
+  border-radius: 10px;
+  font-weight: 500;
 }
 
 /* ----------- CONTACT FORM ---------DOWN------- */
@@ -494,59 +832,67 @@ li::marker {
   justify-content: space-between;
 }
 
-/* ------- floating labels---- */
+/* Container holding the text input and its associated label */
 .inputBox {
-  margin-bottom: 15px;
   position: relative;
   width: 100%;
+  margin-bottom: 20px;
 }
 
-.inputBox .input {
-  border: none;
-  border-bottom: 1px solid #14767a;
-  color: whitesmoke;
+/* Styled text area and generic text box inputs */
+.inputBox input.input,
+.inputBox textarea.input {
   width: 100%;
+  padding: 16px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 8px;
+  color: #fff;
+  font-size: 1rem;
   outline: none;
-  transition: all 0.5s;
-  background-color: #00000000;
-}
-.inputBox .input:focus {
-  border-bottom: 1px solid #20c4cb;
+  transition: all 0.3s ease;
 }
 
-.inputBox input {
-  height: 30px;
-  padding: 0 10px;
+/* Accent change during user focus */
+.inputBox input.input:focus,
+.inputBox textarea.input:focus {
+  border-color: #00f2fe;
+  background: rgba(0, 242, 254, 0.02);
+  box-shadow: 0 0 10px rgba(0, 242, 254, 0.1);
 }
 
-.inputBox textarea {
-  padding: 10px;
-}
-
-.inputBox .floatLabel {
+/* Default state of the label sitting directly inside the input bounds */
+.floatLabel {
   position: absolute;
-  top: 0px;
-  left: 0px;
-  padding: 10px;
-  padding: 6 10px;
-  font-size: 15px;
-  color: rgb(201, 201, 201);
-  transition: all 1s;
-  /* transition: all 0.5s; */
+  left: 16px;
+  top: 16px;
+  color: rgba(255, 255, 255, 0.5);
+  pointer-events: none; /* Allows click events to pass directly through the text to the input */
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  background: transparent;
 }
 
-.focused {
-  color: #20c4cb !important;
-  top: -25px !important;
-  left: -10px !important;
-  /* left: -10px; */
+/* Shift label upwards when input is focused via CSS OR when input explicitly bears the .focused helper class */
+.inputBox input:focus ~ .floatLabel,
+.inputBox textarea:focus ~ .floatLabel,
+.floatLabel.focused {
+  top: -10px;
+  left: 12px;
+  font-size: 0.8rem;
+  color: #00f2fe;
+  background: #121212; /* Matches your background tone to act as a cutout shield overlay */
+  padding: 0 6px;
+  border-radius: 4px;
 }
-/* .inputBox .input:valid,
-.inputBox .input:focus {
-  border-top: 1px solid rgb(201, 201, 201);
-  border-left: 1px solid rgb(201, 201, 201);
-  border-right: 1px solid rgb(201, 201, 201);
-} */
+
+/* Styling error notifications */
+.error-message-text {
+  color: #ff4a4a;
+  font-size: 0.8rem;
+  display: block;
+  margin-top: 5px;
+  padding-left: 5px;
+}
 
 /* -------------------------------------------- */
 
@@ -644,31 +990,6 @@ li::marker {
   align-items: end;
 }
 
-/* .send .btn {
-  color: #20c4cb;
-  font-family: "Orbitron", sans-serif;
-  width: 150px;
-  margin-top: 2vh;
-  border-radius: 25px;
-  background: linear-gradient(white, rgb(201, 201, 201));
-  transition: background 1.5s;
-  transition: all 1s;
-}
-
-.send .btn:hover {
-  color: whitesmoke;
-  background: linear-gradient(#20c4cb, #157f83);
-}
-
-.send h2 {
-  text-align: center;
-  font-size: 2em;
-} */
-.error {
-  color: red;
-  font-size: 0.8rem;
-  margin-top: 0.2rem;
-}
 /* ----------- CONTACT FORM ---------UP------- */
 .footer,
 .footer a {
@@ -679,27 +1000,57 @@ li::marker {
   flex-direction: row;
   gap: 40px;
 }
-@media (max-width: 950px) {
+/* ==========================================================================
+   RESPONSIVE MEDIA QUERIES (Optimized for Grid Layouts)
+   ========================================================================== */
+
+/* Tablet and Small Laptops Breakdown */
+@media (max-width: 1600px) {
+  /* Text expander utility configurations for project logs */
   .project-description .more-desc {
     max-height: auto;
     overflow: auto;
-    transition: all 2s;
+    transition: all 0.5s ease;
   }
+
   .project-description .less-desc {
-    max-height: 100px;
+    max-height: 40px; /* Aligned with your second declaration for compact rendering */
     overflow: hidden;
-    transition: all 2s;
+    transition: all 0.5s ease;
   }
+
   .project-description .toggle-description {
     display: block;
     cursor: pointer;
     color: #20c4cb;
     font-weight: bold;
+    margin-top: 8px;
   }
+
+  /* Enforces vertical column flow on intermediate browser scalings */
+  .project-info {
+    flex-direction: column !important;
+  }
+
+  /* Responsive image deck wrapper sizing for smaller viewports */
+  .project-img-container {
+    height: 180px !important;
+    width: 100% !important;
+    max-width: 300px !important;
+    margin: 20px auto 0 auto !important;
+  }
+
+  .project-img {
+    position: absolute !important;
+    top: 0 !important; /* Fixed negative offset bug pushing images outside card bounding box */
+    max-width: 100% !important;
+    max-height: 100% !important;
+  }
+
+  /* Contact layout system responsive adaptation flow */
   #form {
     flex-direction: column;
     justify-content: space-between;
-    /* height: 70vh; */
   }
 
   .formFields {
@@ -708,92 +1059,83 @@ li::marker {
 
   .formSender,
   .formMsg {
-    width: 95%;
+    width: 100% !important; /* Set to 100% to maximize typing real estate on touch screens */
   }
 }
+
+/* Mobile Phones Breakdown */
 @media (max-width: 750px) {
-  #about,
+  /* Dynamic compression of main section wrappers padding to fit small phone panels */
+
   #contact,
   #projects,
   #skills {
-    padding: 20px 15px;
+    padding: 24px 16px !important;
+    width: 92vw !important; /* Slightly increased width so cards do not look squeezed on mobile */
   }
+
+  /* Global downscaling of main section subtitles typography sizes */
   #about h1,
   #projects h1,
   #skills h1,
   #contact h1,
   #home h1 {
     letter-spacing: 1.5px;
-    font-size: 24px;
+    font-size: 22px !important;
   }
-  .section-title {
-    top: -18px;
-    border-radius: 10px;
-    padding: 2px 5px;
+
+  /* Skills sub-grid adjustments for tiny mobile displays */
+  .skills-box .section-title,
+  #projects .section-title {
+    margin-bottom: 20px;
   }
+
   #about {
     flex-direction: column;
+    padding: 24px 34px !important;
   }
+
+  /* Hero view biography alignment re-centering for mobile phones layout */
   .homeBio {
     position: absolute;
-    top: 100px;
+    top: 80px;
     left: 50%;
     transform: translateX(-50%);
-    width: auto;
-    height: 450px;
-  }
-  .project-info {
-    flex-direction: column;
-  }
-  .project-description .less-desc {
-    max-height: 40px;
-  }
-  .project-img-container {
-    /* max-width: 400px;
-    min-height: 250px;
+    width: 90%;
     height: auto;
-    flex: 1;
-    position: relative;
-    bottom: 0px;
-    right: 0px;
-    display: flex; */
-    flex-direction: row-reverse;
-    /* gap: 10px; */
-    height: 250px;
-    width: 350px;
-    /* transform: translateX(50%); */
-    align-items: center;
-    /* transform: translate(50%, 50%); */
   }
 
-  .project-img {
-    /* position: absolute;
-    right: 0px;
-    top: 0px;
-    max-width: 100%;
-    max-height: 100%;
-    cursor: pointer;
-    transition: transform 0.2s ease-in-out; */
-    /* transform: translate(50%, 50%); */
-    top: -25%;
-    /* transform: translate(0%, 0%); */
-    max-width: 350px;
-    max-height: 350px;
-  }
   .send {
+    display: flex;
+    justify-content: center;
     align-items: center;
+  }
+  .modal-prev,
+  .modal-next {
+    padding: 12px 16px;
+
+    font-size: 12px;
+  }
+  .modal-prev {
+    left: -35px;
+  }
+
+  .modal-next {
+    right: -35px;
   }
 }
+
+/* Super Small Devices / Smart Watches Breakdown */
 @media (max-width: 480px) {
   .project-img-container {
-    height: 180px;
-    width: 300px;
-    align-items: center;
+    height: 150px !important;
+    width: 100% !important;
+    max-width: 260px !important;
   }
 
   .project-img {
-    top: -20%;
-    max-width: 300px;
-    max-height: 300px;
+    top: 0 !important;
+    max-width: 100% !important;
+    max-height: 100% !important;
   }
 }

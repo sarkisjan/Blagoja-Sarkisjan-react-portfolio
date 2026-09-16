@@ -4,7 +4,8 @@ import { Box, Typography, Stack } from "@mui/material";
 import { useObserver } from "../hooks/useObserver";
 
 const About = () => {
-  const [ref, reveal] = useObserver(); //this is for appearing effect
+  const [ref, reveal] = useObserver(); // Hook handling scroll visibility reveal timelines
+
   const educations = [
     {
       institution:
@@ -14,6 +15,7 @@ const About = () => {
       year: "2005-2010",
     },
   ];
+
   const certificates = [
     {
       institution: "Udemy",
@@ -26,6 +28,7 @@ const About = () => {
       year: "2021",
     },
   ];
+
   return (
     <section
       id="about"
@@ -40,21 +43,32 @@ const About = () => {
           flexDirection: { xl: "row", xs: "column" },
         }}
       >
+        {/* Left Side Column: Biography Information Block */}
         <Box sx={{ width: { xl: "50%", xs: "100%" } }}>
           <h1 className="section-title">About Me</h1>
+
           <p className="aboutBio">
-            I am currently working as a system engineer, where I have honed my
-            analytical skills and organizational abilities, and I have been
-            expanding my expertise into web development for the past 5 years.
-            Outside of work, my passion lies in nature, hiking, and maintaining
-            a healthy lifestyle through regular workouts at the gym. I am
-            someone who thrives on learning new skills and believes in
-            approaching every task with dedication and precision. My motto in
-            life is to do everything to the best of my ability, and I am excited
-            about the opportunity to apply my diverse skill set and enthusiasm
-            for learning to the field of web development.
+            I am a passionate <strong>Frontend Developer</strong> dedicated to
+            building clean, highly interactive, and user-centric web
+            applications. With a solid foundation in modern technologies like{" "}
+            <strong>React.js</strong> and <strong>JavaScript</strong>, combined
+            with backend experience in <strong>PHP and MySQL</strong>, I enjoy
+            bridging the gap between robust functionality and beautiful design.
           </p>
+
+          {/* Replaced legacy inline margins object with standard css selectors classes */}
+          <p className="aboutBio aboutBio-secondary">
+            Beyond writing clean code, I bring a strong analytical mindset and a
+            relentless drive for problem-solving. Whether it is transforming
+            complex Figma designs into responsive layouts or optimizing
+            application logic, I am always eager to learn, adapt, and build
+            digital experiences that make a difference.
+          </p>
+
+          {/* Social Profiles Deck Container Holding GitHub Redirect Buttons */}
         </Box>
+
+        {/* Right Side Column: Academic Qualifications Records Timeline Deck */}
         <Stack
           sx={{
             justifyContent: "space-around",
@@ -63,20 +77,23 @@ const About = () => {
             gap: { xl: "70px", xs: "40px" },
           }}
         >
+          {/* Formal University Track Logs */}
           <Box sx={{ width: { xl: "50%", xs: "100%" } }}>
             <h1>Education</h1>
             {educations.map((education, index) => (
-              <ul>
+              <ul key={index}>
                 <li>Institution: {education.institution}</li>
                 <li>Diploma: {education.diploma}</li>
                 <li>Year: {education.year}</li>
               </ul>
             ))}
           </Box>
+
+          {/* Specialized Skill Accreditations Cards Logs */}
           <Box sx={{ width: { xl: "50%", xs: "100%" } }}>
             <h1>Certificates</h1>
             {certificates.map((certificate, index) => (
-              <ul key="index">
+              <ul key={index}>
                 <li>Institution: {certificate.institution}</li>
                 <li className="noStyle">Diploma: {certificate.diploma}</li>
                 <li className="noStyle">Year: {certificate.year}</li>

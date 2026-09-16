@@ -1,45 +1,58 @@
-import React from "react"; // Import React to create the component
-import { useState, useEffect } from "react";
-// SkillCircle component receives 'name' (skill name) and 'procent' (percentage of skill proficiency) as props
+import React, { useState, useEffect } from "react";
 
-const SkillCircle = ({ name, procent, img }) => {
-  const [currentPercentage, setCurrentPercentage] = useState(0); // Track the progress
-  const targetPercentage = parseInt(procent); // Convert procent string to an integer
+// Change the structural arguments to receive 'level' instead of 'procent'
+const SkillCircle = ({ name, level, img }) => {
+  const [currentLevel, setCurrentLevel] = useState(0);
+  const targetLevel = level;
 
-  // Gradually update the percentage to animate the skill circle
   useEffect(() => {
-    let currentProgress = 0; // Start at 0%
-    const interval = setInterval(() => {
-      currentProgress += 1; // Increase progress by 1%
-      setCurrentPercentage(currentProgress); // Update state
+    let currentProgress = 0;
 
-      // Stop the interval when the progress reaches the target percentage
-      if (currentProgress >= targetPercentage) {
+    // Interval to incrementally build up the Level ring
+    const interval = setInterval(() => {
+      currentProgress += 1;
+      setCurrentLevel(currentProgress);
+
+      // Clear interval once the target Level is reached
+      if (currentProgress >= targetLevel) {
         clearInterval(interval);
       }
-    }, 20); // Update every 20ms for a smooth effect
+    }, 15); // Smooth 15ms update rate for fluid rendering
 
-    return () => clearInterval(interval); // Cleanup interval on component unmount
-  }, [targetPercentage]);
+    return () => clearInterval(interval);
+  }, [targetLevel]);
 
   return (
-    <div
-      className="skill-circle"
-      style={{
-        "--percent": currentPercentage,
-        background: `conic-gradient(#20c4cb 0% ${currentPercentage}%, #dcdcdc ${currentPercentage}% 100%)`, // Update the progress using the current percentage
-      }}
-    >
-      <div className="skill-inner">
-        {img ? (
-          <img className="skill-logo" src={img} />
-        ) : (
-          <p className="skill-logo">{name}</p>
-        )}
-        {/* <p>{name}</p> */}
-        <p className="skill-procent">{currentPercentage}%</p>
-      </div>{" "}
-      {/* Display the skill name */}
+    <div className="modern-skill-card">
+      {/* Outer wrapper rendering the dynamic conic-gradient progress ring */}
+      <div
+        className="skill-circle-modern"
+        style={{
+          background: `conic-gradient(#00f2fe 0% ${currentLevel}%, rgba(255, 255, 255, 0.1) ${currentLevel}% 100%)`,
+        }}
+      >
+        {/* Inner container to hold the logo or initials over a dark base */}
+        <div className="skill-inner-modern">
+          {img ? (
+            <div className="logo-wrapper">
+              <img className="skill-logo-modern" src={img} alt={name} />
+            </div>
+          ) : (
+            // Extracted initials to format clean soft skill typography
+            <div className="soft-skill-initials">
+              {name
+                .split(" ")
+                .map((word) => word[0])
+                .join("")}
+            </div>
+          )}
+        </div>
+      </div>
+
+      {/* Only the label remains underneath the circle layout for a cleaner UX */}
+      <div className="skill-info-below">
+        <p className="skill-name-modern">{name}</p>
+      </div>
     </div>
   );
 };

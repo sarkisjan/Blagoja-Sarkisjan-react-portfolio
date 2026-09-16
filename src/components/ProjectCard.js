@@ -1,5 +1,8 @@
-import React, { useState } from "react";
-import { useEffect } from "react";
+import React, { useState, useEffect } from "react";
+// Imported structural elements and icons directly from Material-UI
+import { IconButton, Tooltip } from "@mui/material";
+import LanguageIcon from "@mui/icons-material/Language"; // Icon for World Wide Web (Live Site)
+import GitHubIcon from "@mui/icons-material/GitHub"; // Icon for GitHub Repository
 
 const ProjectCard = ({ project }) => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0); // Track current image index
@@ -31,21 +34,16 @@ const ProjectCard = ({ project }) => {
   // Function to go to the next image
   const nextImage = () => {
     setCurrentImageIndex((prevIndex) =>
-      prevIndex === project.images.length - 1 ? 0 : prevIndex + 1
+      prevIndex === project.images.length - 1 ? 0 : prevIndex + 1,
     );
   };
 
   // Function to go to the previous image
   const prevImage = () => {
     setCurrentImageIndex((prevIndex) =>
-      prevIndex === 0 ? project.images.length - 1 : prevIndex - 1
+      prevIndex === 0 ? project.images.length - 1 : prevIndex - 1,
     );
   };
-
-  // Limiting the number of words in the description
-  // const limitText = (text, limit) => {
-  //   return text.split(" ").slice(0, limit).join(" ") + "...";
-  // };
 
   return (
     <div className="project-card">
@@ -64,11 +62,35 @@ const ProjectCard = ({ project }) => {
             {showFullDescription ? "...less" : "...more"}
           </span>
           <br />
-          <a href={project.link}>
-            <span style={{ color: "#20c4cb", fontWeight: "bold" }}>
-              View Project
-            </span>
-          </a>
+          {/* Action Action Links Container containing modern icons buttons */}
+          <div className="project-actions-wrapper">
+            {/* Live Preview Website URL Redirect Trigger Button */}
+            <Tooltip title="Visit Live Website" arrow placement="top">
+              <IconButton
+                component="a"
+                href={project.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="action-icon-btn web-btn"
+              >
+                <LanguageIcon />
+              </IconButton>
+            </Tooltip>
+            {/* Source Code GitHub Repository Link Redirect Trigger Button */}
+            {project.github && (
+              <Tooltip title="View Source Code on GitHub" arrow placement="top">
+                <IconButton
+                  component="a"
+                  href={project.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="action-icon-btn github-btn"
+                >
+                  <GitHubIcon />
+                </IconButton>
+              </Tooltip>
+            )}
+          </div>
         </div>
 
         {/* Project images - Clicking an image opens the modal */}
@@ -85,27 +107,32 @@ const ProjectCard = ({ project }) => {
         </div>
       </div>
 
-      {/* Modal for enlarging the image */}
+      {/* Modal slider image zoom sandbox component */}
       {isModalOpen && (
         <div className="modal">
           <div className="modal-content">
             <span className="close-button" onClick={closeModal}>
               &times;
             </span>
+
+            {/*  Added dynamic 'key' prop to re-trigger CSS animations on every slide change */}
             <img
-              className="modal-img"
+              key={currentImageIndex}
+              className="modal-img-animated" /* Switched to a new descriptive class name */
               src={project.images[currentImageIndex]}
               alt={`Screenshot ${currentImageIndex + 1} of ${project.title}`}
             />
+
             <button onClick={prevImage} className="modal-prev">
-              &#9664;
+              ◀
             </button>
             <button onClick={nextImage} className="modal-next">
-              &#9654;
+              ▶
             </button>
           </div>
         </div>
       )}
+
       <hr className="projectBorder" />
     </div>
   );
