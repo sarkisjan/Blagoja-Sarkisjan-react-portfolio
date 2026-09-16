@@ -48,11 +48,12 @@ const Projects = () => {
       description:
         "A scalable RESTful API built with Node.js and Express that serves as the core data engine for fitness applications. Hosted live on Render, the server processes raw data arrays using modern ES6 methods to deliver structured JSON payloads. It features 11 highly specific endpoints that enable full-text searching by exercise names and parameterized filtering by target muscles, gear requirements, and body parts. Equipped with CORS middleware, it is fully optimized to provide seamless, secure data pipelines for modern single-page frontend environments like React.",
       images: [
-        process.env.PUBLIC_URL + "/images/projects/api_preview_2.png", // Tip: Put a nice screenshot of Postman or terminal logs here
-        process.env.PUBLIC_URL + "/images/projects/api_preview_3.png", // Tip: Put a nice screenshot of Postman or terminal logs here
-        process.env.PUBLIC_URL + "/images/projects/api_preview_4.png", // Tip: Put a nice screenshot of Postman or terminal logs here
-        process.env.PUBLIC_URL + "/images/projects/api_preview_5.png", // Tip: Put a nice screenshot of Postman or terminal logs here
-        process.env.PUBLIC_URL + "/images/projects/api_preview_1.png", // Tip: Put a nice screenshot of Postman or terminal logs here
+        process.env.PUBLIC_URL + "/images/projects/api_preview_1.png",
+        process.env.PUBLIC_URL + "/images/projects/api_preview_2.png",
+        process.env.PUBLIC_URL + "/images/projects/api_preview_3.png",
+        process.env.PUBLIC_URL + "/images/projects/api_preview_4.png",
+        process.env.PUBLIC_URL + "/images/projects/api_preview_5.png",
+        process.env.PUBLIC_URL + "/images/projects/api_preview_0.png",
       ],
       link: "https://fitnesslifeapi.onrender.com/",
       github: "https://github.com/sarkisjan/fitnesslifeapi", // Replace with your exact GitHub repository path
