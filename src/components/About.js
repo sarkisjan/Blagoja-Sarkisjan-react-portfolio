@@ -20,12 +20,12 @@ const About = () => {
     {
       institution: "Udemy",
       diploma: "Web Developer Bootcamp",
-      year: "2019",
+      year: "2021",
     },
     {
       institution: "Shaw Academy",
       diploma: "Web Development",
-      year: "2021",
+      year: "2019",
     },
   ];
 
