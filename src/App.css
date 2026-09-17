@@ -112,7 +112,8 @@ a {
   width: 88vw;
   padding: 40px;
   border-radius: 20px;
-  border-top: 4px solid #20c4cb;
+  border-top: 1px solid #20c4cb;
+  box-shadow: 0 -3px 7px rgba(32, 196, 203, 0.5);
   margin: 20px 0px;
   background-image: linear-gradient(#000000, #00000038);
   position: relative; /* Keeps absolute positioned titles relative to their parent box */
@@ -136,7 +137,8 @@ a {
   background-color: #000000;
   border-radius: 15px;
   padding: 3px 21px;
-  border-top: 4px solid #20c4cb;
+  border-top: 1px solid #20c4cb;
+  box-shadow: 0 -5px 7px rgba(32, 196, 203, 0.5);
   text-wrap: wrap;
 }
 
@@ -197,7 +199,7 @@ li::marker {
   color: #000 !important; /* Flips icon inner graphics text dark for contrast depth */
   transform: translateY(
     -4px
-  ); /* Suave floating vertical pop elevation shift blueprint */
+  ); /* Suave floating verticahorizontal pop elevation shift blueprint */
 }
 
 /* Individual website global action brand palette fill indicator */
@@ -360,8 +362,8 @@ li::marker {
 /* Close button */
 .close-button {
   position: absolute;
-  top: -40px;
-  right: -20px;
+  top: -10px;
+  right: -30px;
   color: white;
   font-size: 30px;
   text-align: center;
@@ -543,12 +545,12 @@ li::marker {
 
 /* ----- up animation for tittle ----------- */
 
-/* FLOATING VERTICAL NEON SIDEBAR WIDGET STYLES */
+/* FLOATING horizontal NEON SIDEBAR WIDGET STYLES */
 /* Main widget shell pinned cleanly to the middle left browser perimeter */
-.floating-neon-vertical-tab {
-  position: fixed;
+.floating-neon-horizontal-tab {
+  position: relative;
   left: 0;
-  top: 50%;
+  top: 85%;
   transform: translateY(-50%);
   z-index: 2500; /* Layered securely on top of all overlay screens layout profiles */
   background: rgba(18, 18, 18, 0.88);
@@ -563,24 +565,24 @@ li::marker {
 }
 
 /* Collapsed resting status frame layout defaults */
-.vertical-drawer-collapsed {
+.horizontal-drawer-collapsed {
   width: 45px;
-  height: 180px;
+  height: 120px;
   cursor: pointer;
   border: 1px solid rgba(32, 196, 203, 0.25);
 }
 
-/* Expanded active status running dimensions: scales up vertically gracefully */
-.vertical-drawer-expanded {
-  width: 85px;
-  height: 320px; /* Expands height boundaries downwards to host items comfortably */
+/* Expanded active status running dimensions: scales up horizontally gracefully */
+.horizontal-drawer-expanded {
+  width: 43%;
+  height: 120px; /* Expands height boundaries downwards to host items comfortably */
   cursor: pointer;
   border: 1px solid rgba(32, 196, 203, 0.6);
   box-shadow: 0 0 35px rgba(32, 196, 203, 0.4);
 }
 
 /* Conic gradient backdrop drawing the neon chasing light frame beam border lines loop */
-.floating-neon-vertical-tab::before {
+.floating-neon-horizontal-tab::before {
   content: "";
   position: absolute;
   top: -50%;
@@ -593,12 +595,12 @@ li::marker {
     #20c4cb,
     /* Your core signature cyan color brand accent */ transparent
   );
-  animation: spinVerticalGlow 4s linear infinite;
+  animation: spinhorizontalGlow 4s linear infinite;
   z-index: -1;
 }
 
 /* Internal dark structural core shell masking out the thin 2px accent outline border layout */
-.neon-border-glow-line-vertical {
+.neon-border-glow-line-horizontal {
   position: absolute;
   inset: 2px;
   background: #121212;
@@ -607,7 +609,7 @@ li::marker {
 }
 
 /* Centered title lettering block inside resting collapsed conditions panels */
-.vertical-tab-handle-text {
+.horizontal-tab-handle-text {
   z-index: 2;
   transform: rotate(-90deg);
   color: #20c4cb;
@@ -618,13 +620,13 @@ li::marker {
   white-space: nowrap;
 }
 
-/* Inner vertical layouts wrapper lining up icon buttons elements neatly from top to bottom */
-.inner-vertical-drawer-actions {
+/* Inner horizontal layouts wrapper lining up icon buttons elements neatly from top to bottom */
+.inner-horizontal-drawer-actions {
   display: flex;
-  flex-direction: column; /* Switched layout flow logic to linear vertical columns grid */
+  flex-direction: row; /* Switched layout flow logic to linear horizontal columns grid */
   justify-content: center;
   align-items: center;
-  gap: 40px; /* Uniform spacing buffer cleared vertically between buttons */
+  gap: 40px; /* Uniform spacing buffer cleared horizontally between buttons */
   width: 100%;
   height: 100%;
   position: relative;
@@ -671,23 +673,12 @@ li::marker {
 }
 
 /* --- CONIC ROTATION MOTOR SPEED KEYFRAMES --- */
-@keyframes spinVerticalGlow {
+@keyframes spinhorizontalGlow {
   0% {
     transform: rotate(0deg);
   }
   100% {
     transform: rotate(360deg);
-  }
-}
-
-/* Mobile responsive layout shift engine logic mappings for touch display panels screens */
-@media (max-width: 750px) {
-  .vertical-drawer-expanded {
-    width: 60px;
-    height: 250px;
-  }
-  .inner-vertical-drawer-actions {
-    gap: 20px;
   }
 }
 
@@ -1009,6 +1000,7 @@ li::marker {
    ========================================================================== */
 
 /* Tablet and Small Laptops Breakdown */
+
 @media (max-width: 1600px) {
   /* Text expander utility configurations for project logs */
   .project-description .more-desc {
@@ -1066,7 +1058,23 @@ li::marker {
     width: 100% !important; /* Set to 100% to maximize typing real estate on touch screens */
   }
 }
-
+@media (max-width: 1250px) {
+  /* .floating-neon-horizontal-tab {
+    top: 54%;
+  } */
+  .horizontal-drawer-expanded {
+    width: 90%;
+  }
+  /* Hero view biography alignment re-centering for smaller of tablet layout */
+  .homeBio {
+    position: absolute;
+    top: 80px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    height: auto;
+  }
+}
 /* Mobile Phones Breakdown */
 @media (max-width: 750px) {
   /* Dynamic compression of main section wrappers padding to fit small phone panels */
@@ -1099,16 +1107,6 @@ li::marker {
     padding: 24px 34px !important;
   }
 
-  /* Hero view biography alignment re-centering for mobile phones layout */
-  .homeBio {
-    position: absolute;
-    top: 80px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 90%;
-    height: auto;
-  }
-
   .send {
     display: flex;
     justify-content: center;
@@ -1131,6 +1129,9 @@ li::marker {
 
 /* Super Small Devices / Smart Watches Breakdown */
 @media (max-width: 480px) {
+  .floating-neon-horizontal-tab {
+    top: 84%;
+  }
   .project-img-container {
     height: 150px !important;
     width: 100% !important;

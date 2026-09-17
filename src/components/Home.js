@@ -8,7 +8,7 @@ import DescriptionIcon from "@mui/icons-material/Description";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 
 const Home = () => {
-  // State to track if the vertical neon drawer panel is expanded open
+  // State to track if the horizontal neon drawer panel is expanded open
   const [isPanelOpen, setIsPanelOpen] = useState(false);
 
   // Reference hook pointing directly to the floating tab element container in the DOM
@@ -52,25 +52,25 @@ const Home = () => {
         <Tittle className="homeTittle" />
       </Box>
 
-      {/* Modern Vertical Neon Floating Tab Widget with attached useRef anchor trigger */}
+      {/* Modern horizontal Neon Floating Tab Widget with attached useRef anchor trigger */}
       <div
         ref={tabRef} // Connected the DOM node marker right into our state reference tracker
-        className={`floating-neon-vertical-tab ${isPanelOpen ? "vertical-drawer-expanded" : "vertical-drawer-collapsed"}`}
+        className={`floating-neon-horizontal-tab ${isPanelOpen ? "horizontal-drawer-expanded" : "horizontal-drawer-collapsed"}`}
         onClick={() => !isPanelOpen && setIsPanelOpen(true)} // Clicking the tab layout safely slides it open
       >
         {/* Animated neon border background layer mask */}
-        <div className="neon-border-glow-line-vertical"></div>
+        <div className="neon-border-glow-line-horizontal"></div>
 
         {/* Tab handle title text (Visible only inside collapsed resting state) */}
         {!isPanelOpen && (
-          <div className="vertical-tab-handle-text">
+          <div className="horizontal-tab-handle-text">
             <span>Connect</span>
           </div>
         )}
 
-        {/* Inner vertical actions stack housing the functional profile redirects */}
+        {/* Inner horizontal actions stack housing the functional profile redirects */}
         {isPanelOpen && (
-          <div className="inner-vertical-drawer-actions">
+          <div className="inner-horizontal-drawer-actions">
             {/* Target 1: GitHub Account Link */}
             <Tooltip title="Follow my GitHub Profile" arrow placement="right">
               <IconButton

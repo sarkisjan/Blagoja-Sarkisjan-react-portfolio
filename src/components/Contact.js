@@ -60,25 +60,23 @@ const Contact = () => {
       className={`appear-section ${reveal ? "active" : ""}`}
       sx={{ width: "100%", py: 8 }}
     >
+      <h1 className="section-title">Contact me</h1>
+      <Typography
+        variant="h6"
+        sx={{
+          color: "rgba(255,255,255,0.7)",
+          textAlign: "start",
+          mb: 5,
+          fontWeight: 400,
+        }}
+      >
+        Feel free to reach out, and I’ll get back to you as soon as I can
+      </Typography>
       <Box
         className="form-panel"
         id="contact_me"
         sx={{ maxWidth: "800px", margin: "0 auto", px: 2 }}
       >
-        <h1 className="section-title">Contact me</h1>
-
-        <Typography
-          variant="h6"
-          sx={{
-            color: "rgba(255,255,255,0.7)",
-            textAlign: "center",
-            mb: 5,
-            fontWeight: 400,
-          }}
-        >
-          Feel free to reach out, and I’ll get back to you as soon as I can
-        </Typography>
-
         {/* Traditional submission pipeline connected securely to FormSubmit API handler */}
         <form
           id="form"
